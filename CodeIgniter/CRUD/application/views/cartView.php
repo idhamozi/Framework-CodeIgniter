@@ -59,9 +59,11 @@
                       <th scope="col">Action</th>
                     </tr>
                   </thead>
-                  <?php $no = 1; $total_bayar = 0; foreach ($dataModel as $data) {
+                  <?php $no = 1; $total_bayar = 0; $total_item = 0; foreach ($dataModel as $data) {
                     $total = $data['total_harga'];
                     $total_bayar += $total;
+                    $qty = $data['qty'];
+                    $total_item += $qty;
                   ?>
 
                   <tbody>
@@ -88,24 +90,33 @@
                 <table class="table">
                   <thead class="thead-dark">
                     <tr>
-                      <th>Nama Pemesan</th>
-                      <th>Total Harga</th>
-                      <th>Action</th>
+                      <th scope="col">Nama Pemesan</th>
+                      <th scope="col">Total Harga</th>
+                      <th scope="col">Total Item</th>
+                      <th scope="col">Action</th>
                     </tr>
                   </thead>
 
                   <tbody>
                     <tr>
                       <td>
-                        <div class="input-group">
-                            <input class="form-control" type="text" name="nama" value="<?php echo $this->session->userdata("nama") ?>" readonly>
+                        <div class="col-md-4 text-uppercase">
+                            <?php echo $this->session->userdata("nama") ?>
+                            <input class="form-control" type="hidden" name="nama" value="<?php echo $this->session->userdata("nama") ?>" readonly>
                         </div>
                       </td>
 
                       <td>
-                          <div class="input-group">
-                              <input class="form-control" type="text" name="harga" value="<?php echo "Rp. "; echo number_format($total_bayar, 2, ',', '.') ?>" readonly></td>
+                          <div class="col-md-8">
+                                Rp. <?php echo number_format($total_bayar, 2, ',', '.') ?>
+                              <input class="form-control" type="hidden" name="harga" value="<?php echo $total_bayar ?>" readonly></td>
                           </div>
+                      </td>
+                        <td>
+                          <div class="col-md-1">
+                            <?php echo $total_item ?>
+                          </div>
+                        </td>
                       <td class="col-md-4">
 
                         <input type="hidden" name="id" value="">

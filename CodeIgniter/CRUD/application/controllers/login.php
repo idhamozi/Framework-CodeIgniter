@@ -46,7 +46,7 @@ class Login extends CI_Controller{
 
           $this->session->set_userdata($data_session);
 
-          redirect(base_url("admin"));
+          redirect (base_url("admin"));
 
         } else {
           $data['error'] = '<div class="alert alert-danger" style="margin-top: 3px">

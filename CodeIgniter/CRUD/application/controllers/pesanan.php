@@ -71,8 +71,8 @@ class pesanan extends CI_Controller{
     function bayar()
     {
         $data = array(
-            'id_menu_pesanan'=> $this->input->post('id'),
-            'nama_menu'    => $this->input->post('nama'),
+            'id_pesanan'=> $this->input->post('id'),
+            'nama_pembeli'    => $this->input->post('nama'),
             'total_harga'   => $this->input->post('harga')
         );
         $this->dataModel->input_data($data, 'transaksi');

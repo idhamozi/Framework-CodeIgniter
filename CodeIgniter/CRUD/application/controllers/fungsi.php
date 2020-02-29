@@ -69,7 +69,7 @@ class Fungsi extends CI_Controller
           $this->dataModel->input_data($data, 'user');
           redirect('fungsi/index');
         } else {
-            $this->load->view('loginView');
+            $this->load->view('addUser');
         }
     }
 
