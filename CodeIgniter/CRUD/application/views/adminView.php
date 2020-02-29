@@ -47,7 +47,7 @@
               </div>
 
               <div class="panel-body pull-right">
-                <a htype="submit" class="btn btn-success" data-toggle="modal" data-target="#modal_add_menu"><i class="fa fa-plus-square-o"></i> Tambah Menu</a>
+                <a type="submit" class="btn btn-success" data-toggle="modal" data-target="#modal_add_menu"><i class="fa fa-plus-square-o"></i> Tambah Menu</a>
 
                 <!-- ============ MODAL ADD BARANG =============== -->
                         <div class="modal fade" id="modal_add_menu" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
