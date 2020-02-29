@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 26 Feb 2020 pada 15.46
+-- Generation Time: 29 Feb 2020 pada 10.26
 -- Versi Server: 10.1.16-MariaDB
 -- PHP Version: 5.5.38
 
@@ -93,7 +93,9 @@ INSERT INTO `menu` (`id_menu`, `nama_menu`, `harga`, `id_kategori`) VALUES
 (2, 'Ayam Kremes', '25000', 1),
 (3, 'Dadar Gulung', '9000', 1),
 (4, 'Es Anggur Merah', '15000', 2),
-(5, 'Es Teler', '10000', 2);
+(5, 'Es Teler', '10000', 2),
+(6, 'Es Jeruk', '5000', 2),
+(7, 'Es Mambo', '4000', 2);
 
 -- --------------------------------------------------------
 
@@ -112,10 +114,6 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`id_pesanan`, `nama_pembeli`, `total_harga`) VALUES
-(7, 'sasasasa', 60000),
-(8, 'wwawaw', 60000),
-(9, 'auuu', 60000),
-(10, 'fsgdfgd', 85000),
 (11, 'amir', 15000);
 
 -- --------------------------------------------------------
@@ -125,10 +123,20 @@ INSERT INTO `transaksi` (`id_pesanan`, `nama_pembeli`, `total_harga`) VALUES
 --
 
 CREATE TABLE `t_sementara` (
-  `id_pesanan` int(11) NOT NULL,
-  `nama_pembeli` varchar(50) NOT NULL,
-  `total_harga` varchar(50) NOT NULL
+  `id_menu_pesanan` int(15) NOT NULL,
+  `nama_menu` varchar(50) NOT NULL,
+  `total_harga` varchar(50) NOT NULL,
+  `qty` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `t_sementara`
+--
+
+INSERT INTO `t_sementara` (`id_menu_pesanan`, `nama_menu`, `total_harga`, `qty`) VALUES
+(1, 'Ayam Panggung', '15000', 1),
+(2, 'Es Anggur Merah', '45000', 3),
+(3, 'Ayam Panggung', '45000', 3);
 
 -- --------------------------------------------------------
 
@@ -200,7 +208,7 @@ ALTER TABLE `transaksi`
 -- Indexes for table `t_sementara`
 --
 ALTER TABLE `t_sementara`
-  ADD PRIMARY KEY (`id_pesanan`);
+  ADD PRIMARY KEY (`id_menu_pesanan`);
 
 --
 -- Indexes for table `warung`
@@ -216,7 +224,7 @@ ALTER TABLE `warung`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id_menu` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_menu` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
@@ -226,7 +234,7 @@ ALTER TABLE `transaksi`
 -- AUTO_INCREMENT for table `t_sementara`
 --
 ALTER TABLE `t_sementara`
-  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_menu_pesanan` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `warung`
 --
