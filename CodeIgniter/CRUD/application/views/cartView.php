@@ -60,9 +60,9 @@
                     </tr>
                   </thead>
                   <?php $no = 1; $total_bayar = 0; $total_item = 0; foreach ($dataModel as $data) {
-                    $total = $data['total_harga'];
+                    $total = $data['SUM(total_harga)'];
                     $total_bayar += $total;
-                    $qty = $data['qty'];
+                    $qty = $data['SUM(qty)'];
                     $total_item += $qty;
                   ?>
 
@@ -70,8 +70,8 @@
                     <tr>
                       <td><?php echo $no; ?></td>
                       <td><?php echo $data['nama_menu']; ?></td>
-                      <td>Rp. <?php echo number_format($data['total_harga'], 2, ',', '.'); ?></td>
-                      <td><?php echo number_format($data['qty']); ?></td>
+                      <td>Rp. <?php echo number_format($data['SUM(total_harga)'], 2, ',', '.'); ?></td>
+                      <td><?php echo number_format($data['SUM(qty)']); ?></td>
                       <td>
                           <a href="<?php echo base_url('user'); ?>" class="btn btn-sm btn-success btn-block"><i class="fa fa-cart-plus"></i> Tambah Menu Lain</a>
                           <i class="fa fa-trash"></i> <?php echo anchor('pesanan/hapus/'.$data['id_menu_pesanan'],'Hapus Pesanan');?>
