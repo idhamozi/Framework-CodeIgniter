@@ -1,6 +1,6 @@
 <?php
 
-class pesanan extends CI_Controller{
+class Pesanan extends CI_Controller{
     function __construct()
     {
         parent::__construct();

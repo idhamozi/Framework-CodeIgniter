@@ -70,7 +70,7 @@
                       <td class="col-md-4">Rp. <?php echo number_format($dataMakan['harga'], 2, ',', '.'); ?></td>
                       <span class="add">
                         <td class="col-md-1">
-                            <input type="number" name="quantity" value="1" class="quantity form-control" id="<?php echo $dataMakan['nama_menu']; ?>" >
+                            <input type="number" name="quantity" min="1" max="50" value="1" class="quantity form-control" id="<?php echo $dataMakan['nama_menu']; ?>" >
                         </td>
                         <td class="col-md-3">
                             <input type="hidden" name="nama" value="<?php echo $dataMakan['nama_menu']; ?>">
