@@ -34,9 +34,11 @@ class dataModel extends CI_Model{
 	}
 
   public function data_pesanan (){
-    // return $this->db->get('t_sementara')->result_array();
-		return $this->db->query('SELECT id_menu_pesanan, nama_menu, SUM(total_harga), SUM(qty) FROM t_sementara GROUP BY nama_menu')->result_array();
-
+		// return $this->db->query('SELECT id_menu_pesanan, nama_menu, SUM(total_harga), SUM(qty) FROM t_sementara GROUP BY nama_menu')->result_array();
+		return $this->db->select('id_menu_pesanan ,nama_menu ,SUM(total_harga), SUM(qty)')
+						->from('t_sementara')
+						->group_by('nama_menu')
+						->get()->result_array();
   }
 
     public function keranjang($where,$table){

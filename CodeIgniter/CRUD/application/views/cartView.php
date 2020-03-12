@@ -59,7 +59,9 @@
                       <th scope="col">Action</th>
                     </tr>
                   </thead>
+
                   <?php $no = 1; $total_bayar = 0; $total_item = 0; foreach ($dataModel as $data) {
+                    
                     $total = $data['SUM(total_harga)'];
                     $total_bayar += $total;
                     $qty = $data['SUM(qty)'];
